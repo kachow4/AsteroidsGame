@@ -7,9 +7,23 @@ public void draw()
 {
   //your code here
 }
-class SpaceShip //extends Floater  
+class SpaceShip extends Floater  
 {   
-    //your code here
+  SpaceShip(){
+    corners[] = 6;
+    xCorners = new int [corners];
+    yCorners = new int [corners];
+    xCorners[0] = 9;
+    yCorners[0] = 5;
+    xCorners[1] = -7;
+    yCorners[1] = 12;
+    xCorners[2] = 15;
+    yCorners[3] = 3;
+    xCorners[4] = 15;
+    yCorners[4] = -3;
+    xCorners[5] = -7;
+    yCorners[5] = -12;
+  }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
@@ -20,16 +34,16 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   protected double myCenterX, myCenterY; //holds center coordinates   
   protected double myDirectionX, myDirectionY; //holds x and y coordinates of the vector for direction of travel   
   protected double myPointDirection; //holds current direction the ship is pointing in degrees    
-  abstract public void setX(int x);  
-  abstract public int getX();   
-  abstract public void setY(int y);   
-  abstract public int getY();   
-  abstract public void setDirectionX(double x);   
-  abstract public double getDirectionX();   
-  abstract public void setDirectionY(double y);   
-  abstract public double getDirectionY();   
-  abstract public void setPointDirection(int degrees);   
-  abstract public double getPointDirection(); 
+  public void setX(int x) {myCenterX = x;}  
+  public int getX() {return myCenterX;}   
+  public void setY(int y) {myCenterY = y;}   
+  public int getY() {return myCenterY;}   
+  public void setDirectionX(double x) {myDirectionX = x;}   
+  public double getDirectionX() {return myDirectionX;}   
+  public void setDirectionY(double y) {myDirectionY = y;}   
+  public double getDirectionY() {return myDirectionY;}   
+  public void setPointDirection(int degrees) {myPointDirection = degrees;}   
+  public double getPointDirection() {return myPointDirection;} 
 
   //Accelerates the floater in the direction it is pointing (myPointDirection)   
   public void accelerate (double dAmount)   
