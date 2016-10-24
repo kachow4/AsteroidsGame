@@ -1,15 +1,22 @@
 SpaceShip bob = new SpaceShip();
+Star[] sue = new Star[500];
 public void setup() 
 {
   size(1000, 600);
+  for(int i = 0; i < sue.length; i++){
+    sue[i] = new Star();
+  }
 }
 public void draw() 
 {
-  background(255);
+  background(0);
+  for(int i = 0; i < sue.length; i++){
+  sue[i].show();
+  }
+  bob.move();
   bob.show();
 }
-class SpaceShip extends Floater  
-{   
+class SpaceShip extends Floater{   
   SpaceShip(){
     corners = 5;
     xCorners = new int [corners];
@@ -111,4 +118,35 @@ abstract class Floater{ //Do NOT modify the Floater class! Make changes in the S
     endShape(CLOSE);  
   }   
 } 
+
+class Star{
+  int myX, myY;
+  public Star(){
+    myX = (int)(Math.random()*1000);
+    myY = (int)(Math.random()*600);
+  }
+  public void show(){
+    stroke(255);
+    point(myX, myY);
+  }
+}
+
+void keyPressed(){
+  if (key == 'j'){
+    bob.rotate(10);
+  }
+  if (key == 'l'){
+    bob.rotate(-10);
+  }
+  if (key == ' '){
+    bob.accelerate(1);
+  }
+  if (key == 'k'){
+    bob.setDirectionX(0);
+    bob.setDirectionY(0);
+    bob.setX((int)(Math.random()*1000));
+    bob.setY((int)(Math.random()*600));
+    bob.setPointDirection((int)(Math.random()*360)); 
+  }
+}
 
