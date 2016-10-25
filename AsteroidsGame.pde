@@ -2,7 +2,7 @@ SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[500];
 public void setup() 
 {
-  size(1000, 600);
+  size(1200, 1000);
   for(int i = 0; i < sue.length; i++){
     sue[i] = new Star();
   }
@@ -120,10 +120,10 @@ abstract class Floater{ //Do NOT modify the Floater class! Make changes in the S
 } 
 
 class Star{
-  int myX, myY;
+  private int myX, myY;
   public Star(){
-    myX = (int)(Math.random()*1000);
-    myY = (int)(Math.random()*600);
+    myX = (int)(Math.random()*1200);
+    myY = (int)(Math.random()*1000);
   }
   public void show(){
     stroke(255);
