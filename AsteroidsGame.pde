@@ -2,7 +2,7 @@ SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[500];
 public void setup() 
 {
-  size(1200, 1000);
+  size(1200, 900);
   for(int i = 0; i < sue.length; i++){
     sue[i] = new Star();
   }
@@ -22,8 +22,8 @@ class SpaceShip extends Floater{
     xCorners = new int [corners];
     yCorners = new int [corners];
     myColor = color(0, 0, 255);
-    myCenterX = 500;
-    myCenterY = 300;
+    myCenterX = 600;
+    myCenterY = 450;
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 0;
@@ -123,7 +123,7 @@ class Star{
   private int myX, myY;
   public Star(){
     myX = (int)(Math.random()*1200);
-    myY = (int)(Math.random()*1000);
+    myY = (int)(Math.random()*900);
   }
   public void show(){
     stroke(255);
