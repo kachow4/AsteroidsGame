@@ -16,8 +16,9 @@ public void draw()
   bob.move();
   bob.show();
 }
+
 class SpaceShip extends Floater{   
-  SpaceShip(){
+  SpaceShip(){      //constructor
     corners = 5;
     xCorners = new int [corners];
     yCorners = new int [corners];
@@ -38,7 +39,7 @@ class SpaceShip extends Floater{
     xCorners[4] = -15;
     yCorners[4] = -5;
   }
-  public void setX(int x) {myCenterX = x;}  
+  public void setX(int x) {myCenterX = x;}  //functions
   public double getX() {return myCenterX;}   
   public void setY(int y) {myCenterY = y;}   
   public double getY() {return myCenterY;}   
@@ -47,7 +48,7 @@ class SpaceShip extends Floater{
   public void setDirectionY(double y) {myDirectionY = y;}   
   public double getDirectionY() {return myDirectionY;}   
   public void setPointDirection(int degrees) {myPointDirection = degrees;}   
-  public double getPointDirection() {return myPointDirection;} 
+  public double getPointDirection() {return myPointDirection;}
 }
 
 
@@ -126,6 +127,7 @@ class Star{
     myY = (int)(Math.random()*900);
   }
   public void show(){
+    strokeWeight((int)(Math.random()*2));
     stroke(255);
     point(myX, myY);
   }
