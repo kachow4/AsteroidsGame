@@ -1,6 +1,8 @@
 SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[500];
 Asteroid[] jen = new Asteroid[10];
+boolean kIsPressed = false;
+boolean lIsPressed = false;
 
 public void setup(){
   size(1200, 900);
@@ -24,13 +26,18 @@ public void draw()
   }
   bob.move();
   bob.show();
+
+  if(kIsPressed == true && lIsPressed == true)
+  {
+    ellipse(50,50,40,40);
+  }
 }
 
 void keyPressed() {
-  if (key == 'j'){
+  if (keyCode == RIGHT){
     bob.rotate(10);
   }
-  if (key == 'l'){
+  if (keyCode == LEFT){
     bob.rotate(-10);
   }
   if (key == ' '){
@@ -42,6 +49,14 @@ void keyPressed() {
     bob.setX((int)(Math.random()*1000));
     bob.setY((int)(Math.random()*600));
     bob.setPointDirection((int)(Math.random()*360)); 
+  }
+  if(key=='k')
+  {
+    kIsPressed = true;
+  }
+  else if (key == 'l')
+  {
+    lIsPressed = true;
   }
 }
 
@@ -92,20 +107,20 @@ class Asteroid extends Floater{
     myDirectionY = (int)((Math.random()*0.5)+1);
     myPointDirection = (int)(Math.random()*360);
     xCorners[0] = -20;
-    yCorners[0] = 0;
+    yCorners[0] = 5;
     xCorners[1] = -10;
     yCorners[1] = 6;
-    xCorners[2] = -6;
-    yCorners[2] = 10;
-    xCorners[3] = 6;
+    xCorners[2] = -7;
+    yCorners[2] = 15;
+    xCorners[3] = 8;
     yCorners[3] = 10;
-    xCorners[4] = 10;
+    xCorners[4] = 15;
     yCorners[4] = 6;
-    xCorners[5] = 20; 
-    yCorners[5] = 0;
-    xCorners[6] = 5;
-    yCorners[6] = -10;
-    xCorners[7] = -5;
+    xCorners[5] = 18; 
+    yCorners[5] = 2;
+    xCorners[6] = 6;
+    yCorners[6] = -8;
+    xCorners[7] = -7;
     yCorners[7] = -10; 
 
     spin = (int)((Math.random()*10));
@@ -202,13 +217,23 @@ class Star{
     myY = (int)(Math.random()*900);
   }
   public void show(){
-    //strokeWeight((int)(Math.random()*2));
+    strokeWeight((int)(Math.random()*2));
     stroke(255);
     point(myX, myY);
   }
 }
 
-
+void keyReleased()
+{
+  if(key=='k')
+  {
+    kIsPressed = false;
+  }
+  else if (key == 'l')
+  {
+    lIsPressed = false;
+  }
+}
 
 
 
