@@ -16,8 +16,11 @@ public void setup(){
     jen[i] = new Asteroid();
   }*/
   jen = new ArrayList <Asteroid>();
-  Asteroid kat = new Asteroid();
-  jen.add(kat);
+  //Asteroid kat = new Asteroid();
+  //jen.add(kat);
+  for(int j = 0; j < 11; j++){
+    jen.add(j, new Asteroid());
+}
 }
 
 public void draw() 
@@ -30,19 +33,20 @@ public void draw()
     jen[i].move();
     jen[i].show();
   }*/
-  kat.move();
-  kat.show();
-  /*for(int i = 0; i < 11; i++){
-    jen.add(i);
-    jen[i].move();
-    jen[i].show();
-  }*/
+  //kat.move();
+  //kat.show();
+ 
   bob.move();
   bob.show();
 
   if(kIsPressed == true && lIsPressed == true)
   {
     ellipse(50,50,40,40);
+  } 
+  for(int j = 0; j < jen.size(); j++){
+    //Asteroid j = new Asteroid();
+    jen.get(j).move();
+    jen.get(j).show();
   }
 }
 
