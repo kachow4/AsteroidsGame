@@ -1,6 +1,9 @@
 SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[500];
-Asteroid[] jen = new Asteroid[10];
+//Asteroid[] jen = new Asteroid[10]
+ArrayList <Asteroid> jen;
+Asteroid kat = new Asteroid();
+//jen.add(kat);
 boolean kIsPressed = false;
 boolean lIsPressed = false;
 
@@ -9,9 +12,12 @@ public void setup(){
   for(int i = 0; i < sue.length; i++){
     sue[i] = new Star();
   }
-  for(int i = 0; i < jen.length; i++){
+  /*for(int i = 0; i < jen.length; i++){
     jen[i] = new Asteroid();
-  }
+  }*/
+  jen = new ArrayList <Asteroid>();
+  Asteroid kat = new Asteroid();
+  jen.add(kat);
 }
 
 public void draw() 
@@ -20,10 +26,17 @@ public void draw()
   for(int i = 0; i < sue.length; i++){
     sue[i].show();
   }
-  for(int i = 0; i < jen.length; i++){
+  /*for(int i = 0; i < jen.length; i++){
     jen[i].move();
     jen[i].show();
-  }
+  }*/
+  kat.move();
+  kat.show();
+  /*for(int i = 0; i < 11; i++){
+    jen.add(i);
+    jen[i].move();
+    jen[i].show();
+  }*/
   bob.move();
   bob.show();
 
@@ -97,35 +110,51 @@ class SpaceShip extends Floater{
 class Asteroid extends Floater{
   private int spin;
   Asteroid(){
-    corners = 8;
+    corners = 17;
     xCorners = new int [corners];
     yCorners = new int [corners];
-    myColor = color(255);
+    myColor = color(204, 165, 87);
     myCenterX = (int)(Math.random()*1200);
     myCenterY = (int)(Math.random()*900);
-    myDirectionX = (int)((Math.random()*0.5)+1);
-    myDirectionY = (int)((Math.random()*0.5)+1);
+    myDirectionX = (int)((Math.random()*4)-1);
+    myDirectionY = (int)((Math.random()*4)-1);
     myPointDirection = (int)(Math.random()*360);
-    xCorners[0] = -20;
-    yCorners[0] = 5;
-    xCorners[1] = -10;
-    yCorners[1] = 6;
-    xCorners[2] = -7;
-    yCorners[2] = 15;
-    xCorners[3] = 8;
-    yCorners[3] = 10;
-    xCorners[4] = 15;
-    yCorners[4] = 6;
-    xCorners[5] = 18; 
-    yCorners[5] = 2;
-    xCorners[6] = 6;
-    yCorners[6] = -8;
-    xCorners[7] = -7;
-    yCorners[7] = -10; 
-
+    xCorners[0] = 0;
+    yCorners[0] = 18;
+    xCorners[1] = 5;
+    yCorners[1] = 17;
+    xCorners[2] = 9;
+    yCorners[2] = 16;
+    xCorners[3] = 13;
+    yCorners[3] = 14;
+    xCorners[4] = 16;
+    yCorners[4] = 12;
+    xCorners[5] = 17; 
+    yCorners[5] = 8;
+    xCorners[6] = 16;
+    yCorners[6] = 4;
+    xCorners[7] = 14;
+    yCorners[7] = 2; 
+    xCorners[8] = 14; 
+    yCorners[8] = -19;
+    xCorners[9] = -14;
+    yCorners[9] = -19; 
+    xCorners[10] = -14;
+    yCorners[10] = 2;
+    xCorners[11] = -16;
+    yCorners[11] = 4;
+    xCorners[12] = -17;
+    yCorners[12] = 8;
+    xCorners[13] = -16;
+    yCorners[13] = 12;
+    xCorners[14] = -13;
+    yCorners[14] = 14;
+    xCorners[15] = -9; 
+    yCorners[15] = 16;
+    xCorners[16] = -5;
+    yCorners[16] = 17;
     spin = (int)((Math.random()*10));
   }
-
   public void setX(int x){myCenterX = x;}
   public double getX(){return myCenterX;}
   public void setY(int y){myCenterY = y;}
