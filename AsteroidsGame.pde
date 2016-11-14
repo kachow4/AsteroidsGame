@@ -1,26 +1,30 @@
+//bob is the spaceship
+//sue is the stars
+//jen is the asteroids
+
 SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[500];
-//Asteroid[] jen = new Asteroid[10]
 ArrayList <Asteroid> jen;
-Asteroid kat = new Asteroid();
-//jen.add(kat);
 boolean kIsPressed = false;
 boolean lIsPressed = false;
+//Asteroid[] jen = new Asteroid[10]
+//Asteroid kat = new Asteroid();
+//jen.add(kat);
 
 public void setup(){
-  size(1200, 900);
+  size(800, 600);
   for(int i = 0; i < sue.length; i++){
     sue[i] = new Star();
+  }
+  jen = new ArrayList <Asteroid>();
+  for(int j = 0; j < 11; j++){
+    jen.add(j, new Asteroid());
   }
   /*for(int i = 0; i < jen.length; i++){
     jen[i] = new Asteroid();
   }*/
-  jen = new ArrayList <Asteroid>();
   //Asteroid kat = new Asteroid();
   //jen.add(kat);
-  for(int j = 0; j < 11; j++){
-    jen.add(j, new Asteroid());
-}
 }
 
 public void draw() 
@@ -29,25 +33,18 @@ public void draw()
   for(int i = 0; i < sue.length; i++){
     sue[i].show();
   }
+  bob.move();
+  bob.show();
+  for(int j = 0; j < jen.size(); j++){
+    jen.get(j).move();
+    jen.get(j).show();
+  }
   /*for(int i = 0; i < jen.length; i++){
     jen[i].move();
     jen[i].show();
   }*/
   //kat.move();
   //kat.show();
- 
-  bob.move();
-  bob.show();
-
-  if(kIsPressed == true && lIsPressed == true)
-  {
-    ellipse(50,50,40,40);
-  } 
-  for(int j = 0; j < jen.size(); j++){
-    //Asteroid j = new Asteroid();
-    jen.get(j).move();
-    jen.get(j).show();
-  }
 }
 
 void keyPressed() {
@@ -63,7 +60,7 @@ void keyPressed() {
   if (key == 'k'){
     bob.setDirectionX(0);
     bob.setDirectionY(0);
-    bob.setX((int)(Math.random()*1000));
+    bob.setX((int)(Math.random()*800));
     bob.setY((int)(Math.random()*600));
     bob.setPointDirection((int)(Math.random()*360)); 
   }
@@ -83,8 +80,8 @@ class SpaceShip extends Floater{
     xCorners = new int [corners];
     yCorners = new int [corners];
     myColor = color(0, 0, 255);
-    myCenterX = 600;
-    myCenterY = 450;
+    myCenterX = 400;
+    myCenterY = 300;
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 0;
@@ -118,10 +115,10 @@ class Asteroid extends Floater{
     xCorners = new int [corners];
     yCorners = new int [corners];
     myColor = color(204, 165, 87);
-    myCenterX = (int)(Math.random()*1200);
-    myCenterY = (int)(Math.random()*900);
-    myDirectionX = (int)((Math.random()*4)-1);
-    myDirectionY = (int)((Math.random()*4)-1);
+    myCenterX = (int)(Math.random()*800);
+    myCenterY = (int)(Math.random()*600);
+    myDirectionX = (int)((Math.random()*2)+1);
+    myDirectionY = (int)((Math.random()*2)+1);
     myPointDirection = (int)(Math.random()*360);
     xCorners[0] = 0;
     yCorners[0] = 18;
@@ -246,8 +243,8 @@ abstract class Floater{ //Do NOT modify the Floater class! Make changes in the S
 class Star{
   private int myX, myY;
   public Star(){
-    myX = (int)(Math.random()*1200);
-    myY = (int)(Math.random()*900);
+    myX = (int)(Math.random()*800);
+    myY = (int)(Math.random()*600);
   }
   public void show(){
     strokeWeight((int)(Math.random()*2));
