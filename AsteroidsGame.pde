@@ -33,18 +33,20 @@ public void draw()
   for(int i = 0; i < sue.length; i++){
     sue[i].show();
   }
-  bob.move();
-  bob.show();
   for(int j = 0; j < jen.size(); j++){
     jen.get(j).move();
     jen.get(j).show();
-  }
+    if(dist(bob.getX(), bob.getY(), jen.get(j).getX(), jen.get(j).getY()) < 20)
+      jen.remove(j);  
   /*for(int i = 0; i < jen.length; i++){
     jen[i].move();
     jen[i].show();
   }*/
   //kat.move();
   //kat.show();
+  }
+  bob.move();
+  bob.show();
 }
 
 void keyPressed() {
@@ -97,9 +99,9 @@ class SpaceShip extends Floater{
     yCorners[4] = -5;
   }
   public void setX(int x) {myCenterX = x;}  //functions
-  public double getX() {return myCenterX;}   
+  public int getX() {return (int)myCenterX;}   
   public void setY(int y) {myCenterY = y;}   
-  public double getY() {return myCenterY;}   
+  public int getY() {return (int)myCenterY;}   
   public void setDirectionX(double x) {myDirectionX = x;}   
   public double getDirectionX() {return myDirectionX;}   
   public void setDirectionY(double y) {myDirectionY = y;}   
@@ -117,8 +119,8 @@ class Asteroid extends Floater{
     myColor = color(204, 165, 87);
     myCenterX = (int)(Math.random()*800);
     myCenterY = (int)(Math.random()*600);
-    myDirectionX = (int)((Math.random()*2)+1);
-    myDirectionY = (int)((Math.random()*2)+1);
+    myDirectionX = (int)((Math.random()*4)-2);
+    myDirectionY = (int)((Math.random()*4)-2);
     myPointDirection = (int)(Math.random()*360);
     xCorners[0] = 0;
     yCorners[0] = 18;
@@ -157,9 +159,9 @@ class Asteroid extends Floater{
     spin = (int)((Math.random()*10));
   }
   public void setX(int x){myCenterX = x;}
-  public double getX(){return myCenterX;}
+  public int getX(){return (int)myCenterX;}
   public void setY(int y){myCenterY = y;}
-  public double getY(){return myCenterY;}
+  public int getY(){return (int)myCenterY;}
   public void setDirectionX(double x){myDirectionX = x;}
   public double getDirectionX(){return myDirectionX;}
   public void setDirectionY(double y){myDirectionY = y;}
@@ -181,9 +183,9 @@ abstract class Floater{ //Do NOT modify the Floater class! Make changes in the S
   protected double myDirectionX, myDirectionY; //holds x and y coordinates of the vector for direction of travel   
   protected double myPointDirection; //holds current direction the ship is pointing in degrees    
   abstract public void setX(int x);  
-  abstract public double getX();   
+  abstract public int getX();   
   abstract public void setY(int y);
-  abstract public double getY(); 
+  abstract public int getY(); 
   abstract public void setDirectionX(double x);  
   abstract public double getDirectionX();   
   abstract public void setDirectionY(double y);   
