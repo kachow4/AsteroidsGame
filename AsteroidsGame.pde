@@ -7,6 +7,8 @@ Star[] sue = new Star[500];
 ArrayList <Asteroid> jen;
 boolean kIsPressed = false;
 boolean lIsPressed = false;
+Bullet mat = new Bullet(bob);
+ArrayList <Bullet> lily;
 //Asteroid[] jen = new Asteroid[10]
 //Asteroid kat = new Asteroid();
 //jen.add(kat);
@@ -22,13 +24,12 @@ public void setup(){
   }
   /*for(int i = 0; i < jen.length; i++){
     jen[i] = new Asteroid();
-  }*/
-  //Asteroid kat = new Asteroid();
-  //jen.add(kat);
+  }
+  Asteroid kat = new Asteroid();
+  jen.add(kat);*/
 }
 
-public void draw() 
-{
+public void draw(){
   background(0);
   for(int i = 0; i < sue.length; i++){
     sue[i].show();
@@ -36,17 +37,19 @@ public void draw()
   for(int j = 0; j < jen.size(); j++){
     jen.get(j).move();
     jen.get(j).show();
-    if(dist(bob.getX(), bob.getY(), jen.get(j).getX(), jen.get(j).getY()) < 20)
+    if(dist(bob.getX(), bob.getY(), jen.get(j).getX(), jen.get(j).getY()) < 30)
       jen.remove(j);  
   /*for(int i = 0; i < jen.length; i++){
     jen[i].move();
     jen[i].show();
-  }*/
-  //kat.move();
-  //kat.show();
   }
-  bob.move();
+  kat.move();
+  kat.show();*/
+  }
+  mat.show();
+  mat.move();
   bob.show();
+  bob.move();
 }
 
 void keyPressed() {
@@ -56,8 +59,11 @@ void keyPressed() {
   if (keyCode == LEFT){
     bob.rotate(-10);
   }
-  if (key == ' '){
-    bob.accelerate(1);
+  if (keyCode == UP){
+    bob.accelerate(.2);
+  }
+  if (keyCode == DOWN){
+    bob.accelerate(-.2);
   }
   if (key == 'k'){
     bob.setDirectionX(0);
@@ -66,14 +72,16 @@ void keyPressed() {
     bob.setY((int)(Math.random()*600));
     bob.setPointDirection((int)(Math.random()*360)); 
   }
-  if(key=='k')
-  {
+  if(key=='k'){
     kIsPressed = true;
   }
-  else if (key == 'l')
-  {
+  else if (key == 'l'){
     lIsPressed = true;
   }
+  /*for(int s = 0; s < 10; s++){
+    if (key == ' '){
+    lily.add(s, new Bullet(bob));
+    }*/
 }
 
 class SpaceShip extends Floater{   
@@ -174,6 +182,32 @@ class Asteroid extends Floater{
   }
 }
 
+class Bullet extends Floater{
+  public Bullet(SpaceShip theShip){
+    myCenterX = theShip.getX();
+    myCenterY = theShip.getY();
+    myPointDirection = theShip.getPointDirection();
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX = 5*Math.cos(dRadians) + theShip.myDirectionY;
+    myDirectionY = 5*Math.sin(dRadians) + theShip.myDirectionY;
+  }
+  public void show(){
+    stroke(255);
+    strokeWeight(5);
+    point((float)myCenterX, (float)myCenterY);
+  }
+  public void setX(int x){myCenterX = x;}
+  public int getX(){return (int)myCenterX;}
+  public void setY(int y){myCenterY = y;}
+  public int getY(){return (int)myCenterY;}
+  public void setDirectionX(double x){myDirectionX = x;}
+  public double getDirectionX(){return myDirectionX;}
+  public void setDirectionY(double y){myDirectionY = y;}
+  public double getDirectionY(){return myDirectionY;}
+  public void setPointDirection(int degrees){myPointDirection = degrees;}
+  public double getPointDirection(){return myPointDirection;}
+}
+
 abstract class Floater{ //Do NOT modify the Floater class! Make changes in the SpaceShip class   
   protected int corners;  //the number of corners, a triangular floater has 3   
   protected int[] xCorners;   
@@ -257,12 +291,10 @@ class Star{
 
 void keyReleased()
 {
-  if(key=='k')
-  {
+  if(key=='k'){
     kIsPressed = false;
   }
-  else if (key == 'l')
-  {
+  else if (key == 'l'){
     lIsPressed = false;
   }
 }
