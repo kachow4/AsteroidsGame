@@ -11,7 +11,7 @@ class Star{
   }
 }
 
-void keyReleased()
+/*void keyReleased()
 {
   if(key=='k'){
     kIsPressed = false;
@@ -19,4 +19,4 @@ void keyReleased()
   else if (key == 'l'){
     lIsPressed = false;
   }
-}
+}*/

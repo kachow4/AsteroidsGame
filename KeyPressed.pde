@@ -18,14 +18,8 @@ void keyPressed() {
     bob.setY((int)(Math.random()*600));
     bob.setPointDirection((int)(Math.random()*360)); 
   }
-  if(key=='k'){
-    kIsPressed = true;
-  }
-  else if (key == 'l'){
-    lIsPressed = true;
-  }
-  /*for(int s = 0; s < 10; s++){
-    if (key == ' '){
+  if (key == ' '){
     lily.add(s, new Bullet(bob));
-    }*/
+  }
 }
+

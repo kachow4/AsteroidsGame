@@ -7,11 +7,13 @@ class Bullet extends Floater{
     myDirectionX = 5*Math.cos(dRadians) + theShip.myDirectionY;
     myDirectionY = 5*Math.sin(dRadians) + theShip.myDirectionY;
   }
+
   public void show(){
     stroke(255);
     strokeWeight(5);
     point((float)myCenterX, (float)myCenterY);
   }
+  
   public void setX(int x){myCenterX = x;}
   public int getX(){return (int)myCenterX;}
   public void setY(int y){myCenterY = y;}
