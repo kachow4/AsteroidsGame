@@ -5,8 +5,8 @@
 SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[500];
 ArrayList <Asteroid> jen;
-Bullet mat = new Bullet(bob);
 ArrayList <Bullet> lily;
+//Bullet mat = new Bullet(bob);
 //Asteroid[] jen = new Asteroid[10]
 //Asteroid kat = new Asteroid();
 //jen.add(kat);
@@ -23,9 +23,7 @@ public void setup(){
     jen.add(j, new Asteroid());
   }
 
-  lily = new ArrayList <Bullet>(bob);
-  for(int s = 0; s < lily.size(); s++){
-  }
+  lily = new ArrayList <Bullet>();         
   /*for(int i = 0; i < jen.length; i++){
     jen[i] = new Asteroid();
   }
@@ -50,12 +48,21 @@ public void draw(){
   kat.move();
   kat.show();*/
   }
-  mat.show();
-  mat.move();
-  lily.show();
-  lily.move();
+  //mat.show();
+  //mat.move();
+  for(int s = 0; s < lily.size(); s++){
+    lily.get(s).move();
+    lily.get(s).show();
+  }
   bob.show();
   bob.move();
+  for(int s = 0; lily.size(); s++){
+    for(int j = 0; jen.size(); j++){
+      if(dist(jen.getX(j), jen.getY(j), lily.getX(s), lily.getY(s)) < 10)
+        lily.remove(s);
+        jen.remove(j);
+    }
+  }
 }
 
 

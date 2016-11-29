@@ -19,7 +19,9 @@ void keyPressed() {
     bob.setPointDirection((int)(Math.random()*360)); 
   }
   if (key == ' '){
-    lily.add(s, new Bullet(bob));
+    for(int s = 0; s < 1; s++){
+      lily.add(s, new Bullet(bob));
+    }
   }
 }
 
