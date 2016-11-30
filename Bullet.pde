@@ -9,9 +9,11 @@ class Bullet extends Floater{
   }
 
   public void show(){
-    stroke(255);
-    strokeWeight(5);
-    point((float)myCenterX, (float)myCenterY);
+    fill(255, 239, 109);
+    stroke(252, 228, 46);
+    strokeWeight(2);
+    rect((float)myCenterX, (float)myCenterY, 10, 10, 2);
+    //point((float)myCenterX, (float)myCenterY);
   }
   
   public void setX(int x){myCenterX = x;}

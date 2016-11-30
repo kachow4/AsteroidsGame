@@ -11,12 +11,4 @@ class Star{
   }
 }
 
-/*void keyReleased()
-{
-  if(key=='k'){
-    kIsPressed = false;
-  }
-  else if (key == 'l'){
-    lIsPressed = false;
-  }
-}*/
+
