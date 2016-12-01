@@ -1,8 +1,8 @@
 void keyPressed() {
-  if (keyCode == RIGHT){
+  if (keyCode == LEFT){
     bob.rotate(10);
   }
-  if (keyCode == LEFT){
+  if (keyCode == RIGHT){
     bob.rotate(-10);
   }
   if (keyCode == UP){
