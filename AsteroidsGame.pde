@@ -4,7 +4,7 @@
 //lily is the bullets
 
 SpaceShip bob = new SpaceShip();
-Star[] sue = new Star[500];
+Star[] sue = new Star[400];
 ArrayList <Asteroid> jen;
 ArrayList <Bullet> lily;
 
