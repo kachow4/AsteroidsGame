@@ -19,7 +19,7 @@ class Bullet extends Floater{
   public void move (){   //move the floater in the current direction of travel      
     myCenterX += myDirectionX;     //change the x and y coordinates by myDirectionX and myDirectionY 
     myCenterY += myDirectionY;     
-  /*  if(myCenterX >width){ //wrap around screen       
+    if(myCenterX >width){ //wrap around screen       
       jen.remove(this);    
     }    
     else if (myCenterX<0){     
@@ -30,7 +30,7 @@ class Bullet extends Floater{
     }   
     else if (myCenterY < 0){     
       jen.remove(this);   
-    }*/   
+    }   
   }  
 
   public void setX(int x){myCenterX = x;}
