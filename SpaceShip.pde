@@ -20,6 +20,7 @@ class SpaceShip extends Floater{
     xCorners[4] = -15;
     yCorners[4] = -5;
   }
+
   public void setX(int x) {myCenterX = x;}  //functions
   public int getX() {return (int)myCenterX;}   
   public void setY(int y) {myCenterY = y;}   
