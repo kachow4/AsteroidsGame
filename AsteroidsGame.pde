@@ -2,6 +2,7 @@
 //sue is the stars
 //jen is the asteroids
 //lily is the bullets
+//Helen was here
 
 SpaceShip bob = new SpaceShip();
 Star[] sue = new Star[400];
@@ -58,10 +59,3 @@ public void draw(){
     }
   }
 }
-
-
-
-
-
-
-
